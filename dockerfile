@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
     npm \
-    && docker-php-ext-install zip
+    && docker-php-ext-install zip pdo pdo_mysql mbstring
 
 # Instalar Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
@@ -18,11 +18,11 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 # Instalar Yarn
 RUN npm install -g yarn
 
-# Copiar los archivos de la aplicación
+# Configurar directorio de trabajo
 WORKDIR /app
 COPY . .
 
-# Instalar dependencias y optimizar la aplicación
+# Instalar dependencias de Laravel y optimizar
 RUN composer install --no-dev --optimize-autoloader && \
     yarn install && \
     yarn prod && \
