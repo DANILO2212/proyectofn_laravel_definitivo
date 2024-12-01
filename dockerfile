@@ -35,4 +35,4 @@ RUN composer install --no-dev --optimize-autoloader && \
 EXPOSE 3306
 
 # Comando por defecto
-CMD ["php", "artisan", "serve", "--host=proyectofnlaravel-production.up.railway.app", "--port=3306"]
+CMD ["php", "artisan", "serve", "--proyectofnlaraveldefinitivo-production.up.railway.app", "--port=3306"]
